@@ -53,7 +53,7 @@ jobs:
         --application-name ${{ env.EB_APPLICATEION_NAME }} \
         --source-bundle S3Bucket="${{ env.EB_PACKAGE_S3_BUCKET_NAME }}",S3Key="${{ env.DEPLOY_PACKAGE_NAME }}" \
         --version-label "Ver-${{ github.sha }}" \
-        --description "CommitSHA-${{ githun.sha }}"
+        --description "CommitSHA-${{ github.sha }}"
 
     - name: Deploy new ElasticBeanstalk Application Version
       run: aws elasticbeanstalk update-enviroment --enviroment-name ${{ env.EB_ENVIROMENT_NAME }} --version-label "Ver-${{ github.sha }}"
